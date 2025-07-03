@@ -21,7 +21,6 @@ El proyecto sigue una arquitectura hexagonal (Ports and Adapters) para asegurar 
 
 Para detalles específicos de cada microservicio (Estudiantes, Cursos, Calificaciones), por favor, consulta los READMEs dedicados:
 
-- [README_Student.md](README_Student.md)
 - [README_Course.md](README_Course.md)
 - [README_Grade.md](README_Grade.md)
 
@@ -103,5 +102,3 @@ Puedes usar herramientas como Postman, Insomnia o `curl` para interactuar con lo
     ```bash
     curl http://localhost:8080/api/grades
     ```
-
-Reemplaza `<ID_ESTUDIANTE>` y `<ID_CURSO>` con los IDs reales obtenidos al crear estudiantes y cursos.
