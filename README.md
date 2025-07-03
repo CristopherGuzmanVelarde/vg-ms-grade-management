@@ -19,10 +19,45 @@ El proyecto sigue una arquitectura hexagonal (Ports and Adapters) para asegurar 
 - `application`: Define los servicios de aplicación (ports) y sus implementaciones (adapters), orquestando las operaciones del dominio.
 - `infrastructure`: Contiene los adaptadores para tecnologías externas, como la base de datos (MongoDB) y la capa REST (controladores).
 
-Para detalles específicos de cada microservicio (Estudiantes, Cursos, Calificaciones), por favor, consulta los READMEs dedicados:
-
-- [README_Course.md](README_Course.md)
-- [README_Grade.md](README_Grade.md)
+## Estructura del Proyecto
+```
+src/main/java/pe/edu/vallegrande/vg_ms_grade_management/
+├── domain/
+│   ├── model/
+│   │   └── Grade.java                 // Entidad que representa una nota
+│   │   └── DatabaseSequence.java      // Entidad para la secuencia de IDs
+│   ├── enums/
+│   │   └── ... (otros enums del dominio)
+│   └── repository/
+│       └── GradeRepository.java       // Interfaz para la persistencia de notas
+├── application/
+│   ├── service/
+│   │   ├── GradeService.java          // Interfaz para los servicios de notas
+│   │   ├── GradeNotificationService.java // Servicio para notificaciones transaccionales
+│   │   └── SequenceGeneratorService.java // Servicio para generar secuencias de IDs
+│   └── impl/
+│       ├── GradeServiceImpl.java    // Implementación de los servicios de notas
+│       └── GradeNotificationServiceImpl.java // Implementación de notificaciones transaccionales
+├── infrastructure/
+│   ├── config/
+│   │   └── ... (configuraciones específicas de infraestructura)
+│   ├── document/
+│   │   └── GradeDocument.java         // Documento MongoDB para notas
+│   ├── dto/
+│   │   ├── request/
+│   │   │   └── GradeRequest.java    // DTO para la creación/actualización de notas
+│   │   └── response/
+│   │       └── GradeResponse.java   // DTO para las respuestas de notas
+│   ├── mapper/
+│   │   └── GradeMapper.java           // Mapper entre Grade y GradeDocument
+│   ├── repository/
+│   │   └── GradeRepository.java       // Repositorio Spring Data MongoDB para notas
+│   ├── rest/
+│   │   └── GradeRest.java             // Controlador REST para las notas
+│   └── service/
+│       └── ApiService.java            // Servicio de API genérico
+└── VgMsGradeManagementApplication.java  // Clase principal de la aplicación
+```
 
 ## Configuración
 
